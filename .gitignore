@@ -1,0 +1,52 @@
+# Platform-specific files
+*.log
+*.env
+.env.local
+.env.production
+
+# Docker
+docker-compose.override.yml
+docker-compose.local.yml
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node.js (if any platform-level scripts)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+
+# Backup files
+*.bak
+*.backup
+
+# Documentation builds
+docs/_build/
+
+# Local development overrides
+docker-compose.dev.yml
+docker-compose.local.yml
+
+# Platform-specific secrets (each service should handle its own)
+secrets/
+*.key
+*.pem 
