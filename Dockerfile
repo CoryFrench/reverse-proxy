@@ -1,13 +1,17 @@
 FROM nginx:alpine
 
-# Copy the nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copy the nginx configuration template and entrypoint script
+COPY nginx.conf.template /etc/nginx/nginx.conf.template
+COPY entrypoint.sh /entrypoint.sh
 
-# Install curl for health checks
-RUN apk add --no-cache curl
+# Install curl for health checks and gettext for envsubst
+RUN apk add --no-cache curl gettext
+
+# Make entrypoint script executable
+RUN chmod +x /entrypoint.sh
 
 # Expose port 80
 EXPOSE 80
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"] 
+# Use custom entrypoint
+ENTRYPOINT ["/entrypoint.sh"] 
